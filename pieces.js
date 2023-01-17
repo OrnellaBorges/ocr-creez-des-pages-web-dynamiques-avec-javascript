@@ -1,3 +1,28 @@
+/* Méthodes les plus connues en javaScript :
+
+    //Choisir/selectionner des balises :
+    .querySelector('universel')
+    .getElementById('id')
+    .getElementsByClassName('classe')
+    .getElementsByTagName('balise')
+
+    // Création des balises :
+    document.createElement('header')
+
+    // Creation des attributs :
+    .src = 'images/mon-image.jpg'
+    .attr(src, 'images/mon-image.jpg')
+
+    //Creer le contenu des balises :
+    .innerText('')
+
+    // Injections dans le DOM :
+    .appendChild()
+    .prependChild()
+    .
+    .
+*/
+
 // Récupération des pièces depuis le fichier JSON
 const reponse = await fetch('pieces-autos.json');
 const pieces = await reponse.json();
@@ -33,6 +58,4 @@ for (let i = 0; i < pieces.length; i++) {
     //Ajout des éléments au DOM pour l'exercice
     pieceElement.appendChild(descriptionElement);
     pieceElement.appendChild(stockElement);
-
- }
- 
+}

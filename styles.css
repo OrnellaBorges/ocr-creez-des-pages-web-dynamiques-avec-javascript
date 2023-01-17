@@ -13,7 +13,7 @@ header {
 	align-items: center;
 	margin-bottom: 16px;
 	padding: 8px;
-	background-color: #7451eb;
+	background-color: #eb5151;
 	text-align: center;
 	color: white;
 }
@@ -41,6 +41,23 @@ main {
 .filtres h3 {
 	text-align: center;
 }
+
+/* .btn-send-msg {
+    background-color: lightgray;
+
+    &:before {
+
+    }
+    &:after {
+
+    }
+    &:hover {
+
+    }
+    &.active {
+        background-color: yellow;
+    }
+} */
 
 .fiches {
 	flex: 1;
