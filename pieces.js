@@ -73,6 +73,7 @@ boutonNoDescription.addEventListener("click", function () {
    console.log(piecesFiltrees);
 });
 
+
 const noms = pieces.map(piece => piece.nom);
 for(let i = pieces.length -1 ; i >= 0; i--){
     if(pieces[i].prix > 35){
@@ -83,11 +84,82 @@ for(let i = pieces.length -1 ; i >= 0; i--){
 //Création de la liste
 const abordablesElements = document.createElement('ul');
 //Ajout de chaque nom à la liste
-for(let i=0; i < noms.length ; i++){
+for(let i=0; i < noms.length; i++){
     const nomElement = document.createElement('li');
     nomElement.innerText = noms[i];
     abordablesElements.appendChild(nomElement)
 }
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
-document.querySelector('.abordables')
-    .appendChild(abordablesElements)
+document.querySelector('.abordables').appendChild(abordablesElements)
+        // VERSION SANS .filter
+    /* for(let i = pieces.length - 1; i >= 0; i--) {
+        if(pieces[i].disponibilite === false) {
+            descriptions.splice(i,1)
+        }
+        else{
+            const li = document.createElement("li") */
+
+            // Version classique :
+            /* if(descriptions[i]) {
+                li.innerText = descriptions[i]
+            }
+            else {
+                li.innerText = "Aucune description pour le moment"
+            } */
+
+            // VERSION TERNAIRE
+           // li.innerText = descriptions[i] ? descriptions[i] : "Aucune description"
+
+            // VERSION NULLISH
+
+      /*       li.innerText = descriptions[i] ?? "Aucune description"
+
+            ul.appendChild(li)
+        }@
+    } */
+
+    // VERSION AVEC LA METHODE FILTER
+    // Filter raccourci
+    //const filtrePiecesDisponibles = pieces.filter(piece => piece.disponibilite ? true : false)
+    // Filter détaillé
+    /* const filtrePiecesDisponibles = pieces.filter(function(piece){
+        return piece.disponibilite === true;
+    })
+
+    for(let i = 0; i < filtrePiecesDisponibles.length; i++){
+        const description = filtrePiecesDisponibles[i].description
+        const prix = pieces[i].prix
+        const li = document.createElement("li");
+        li.innerText = description ? `${description} - ${prix} €` : `Aucune description pour le moment - ${prix} €`;
+        ul.appendChild(li)
+    } */
+
+
+const nomsDisponibles = pieces.map(piece => piece.nom)
+const prixDisponibles = pieces.map(piece => piece.prix)
+
+// boucle pour parcourir le tableau des pièces disponibles
+// tableau d'origine 
+
+for(let i = pieces.length - 1; i >= 0; i--){
+    if(pieces[i].disponibilite === false){
+        nomsDisponibles.splice(i,1)
+        prixDisponibles.splice(i,1)
+    }
+}
+
+const disponiblesElement = documents.querySelector('ul')
+
+// boucle qui créer la liste et ratache a son parent
+
+/* const dispo = document.querySelector('.disponibles')
+const disponibleElements = document.createElement("ul")
+const dispo.appendChild(disponibleElements) */
+
+for(let i = 0; i < nomsDisponibles.length; i++){
+    const nomElement = document.createElement('li');
+    nomElement.innerText = `${nomsDisponibles[i]} - ${prixDisponibles[i]} €`
+    disponiblesElement.appendChild(nomElement)
+}
+
+document.querySelector('.disponibles').appendChild(disponiblesElement);
