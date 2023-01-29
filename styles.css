@@ -66,3 +66,7 @@ main {
 .fiches article h2 {
 	text-align: center;
 }
+
+.input[type=range]{
+    height: 36px;
+}
