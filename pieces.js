@@ -168,54 +168,14 @@ document.addEventListener( 'scroll' , afficher('mbappe')) */
     document.querySelectorAll('.classe') // Selectionne tous les elements qui ont la classe et les stock sous forme d'un tableau
 }) */
 
-
-
-
-
 // ECOUTER EVENT DE INPUT RANGE 
-
 inputSlider.addEventListener("input", function(e) {
-
+    // Par précaution on convertit en nombre pour s'assurer que
+    // la comparaison à la ligne 186 ne va pas poser problème
     let maValeurReglette = Number(e.target.value)
-
-    //console.log('maValeurReglette', maValeurReglette)
-
     const piecesFiltrees = pieces.filter(function (piece) {
         return piece.prix <= maValeurReglette;
     });
     document.querySelector(".fiches").innerHTML = "";
     genererPieces(piecesFiltrees);
-
-    /* const inputPrix = document.getElementById("prix-max")
-    console.log('valeur input range', inputPrix.value) */
-
-    /* for(let i = 0; i < pieces.length; i++){
-        if(pieces[i].prix <= inputRangePrix){
-            console.log(pieces[i].prix)
-        }
-        else{
-            
-        }
-    } */
 })
-
-/* 
-const noms = pieces.map(piece => piece.nom);
-for(let i = pieces.length -1 ; i >= 0; i--){
-    if(pieces[i].prix > 35){
-        noms.splice(i,1)
-    }
-}
-
-
-for(let i = 0; i < pieces.length; i++){
-    console.log(pieces)
-    if(pieces[i] ){
-
-    }
-} */
-
-
-
-
-//document.querySelector('#prix-max').appendChild('hjb')
