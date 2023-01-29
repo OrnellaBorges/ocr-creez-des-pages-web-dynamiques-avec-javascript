@@ -91,6 +91,9 @@ for(let i=0; i < noms.length; i++){
 }
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables').appendChild(abordablesElements)
+
+
+
         // VERSION SANS .filter
     /* for(let i = pieces.length - 1; i >= 0; i--) {
         if(pieces[i].disponibilite === false) {
@@ -161,5 +164,8 @@ for(let i = 0; i < nomsDisponibles.length; i++){
     nomElement.innerText = `${nomsDisponibles[i]} - ${prixDisponibles[i]} €`
     disponiblesElement.appendChild(nomElement)
 }
-
+// .querySelector('') selectionne la balise avec la class dans le dom 
 document.querySelector('.disponibles').appendChild(disponiblesElement);
+
+// efface le contenu de la balise body grace au innerHTML = '' la chaine de caratère vide permet d'effacer le contenu de la balise .fiches
+//document.querySelector('.fiches').innerHTML ='';
