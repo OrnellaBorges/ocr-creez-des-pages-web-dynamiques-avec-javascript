@@ -76,6 +76,15 @@ boutonDecroissant.addEventListener("click", function () {
 
 const boutonNoDescription = document.querySelector(".btn-nodesc");
 
+/*
+for(let element of elements) {
+
+}
+
+elements.filter( function(){} )
+
+*/
+
 boutonNoDescription.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (piece) {
         return piece.description
@@ -90,7 +99,7 @@ for(let i = pieces.length -1 ; i >= 0; i--){
         noms.splice(i,1)
     }
 }
-console.log(noms)
+//console.log(noms)
 //Création de l'en-tête
 
 const pElement = document.createElement('p')
@@ -130,3 +139,83 @@ for(let i=0 ; i < nomsDisponibles.length ; i++){
 const pElementDisponible = document.createElement('p')
 pElementDisponible.innerText = "Pièces disponibles:";
 document.querySelector('.disponibles').appendChild(pElementDisponible).appendChild(disponiblesElement)
+
+
+// EXERCICE SLIDER INPUT 
+
+
+//console.log(prixElements)
+
+//selectionne la balise associé à l'input dans le dom 
+const inputSlider = document.querySelector(".input-slider")
+
+/* const maFonction = (joueur) => {
+    console.log(joueur)
+}
+document.addEventListener( 'scroll' , afficher('mbappe')) */
+
+/* for(let i = 0; i < 10; i++) {
+
+}
+
+/* button.addEventListener('click', function(e){
+    console.log(e.target.value) // Récupération de la valeur de l'élement
+
+    e.stopPropagation() // Empecher que ça clique sur les parents derriere
+    e.preventDefault() // Empecher le rechargement de la page au bouton de soumission d'un formulaire
+
+    document.querySelector('.classe') // Selectionne le 1er element qu'il trouve
+    document.querySelectorAll('.classe') // Selectionne tous les elements qui ont la classe et les stock sous forme d'un tableau
+}) */
+
+
+
+
+
+// ECOUTER EVENT DE INPUT RANGE 
+
+inputSlider.addEventListener("input", function(e) {
+
+    let maValeurReglette = Number(e.target.value)
+
+    //console.log('maValeurReglette', maValeurReglette)
+
+    const piecesFiltrees = pieces.filter(function (piece) {
+        return piece.prix <= maValeurReglette;
+    });
+    document.querySelector(".fiches").innerHTML = "";
+    genererPieces(piecesFiltrees);
+
+    /* const inputPrix = document.getElementById("prix-max")
+    console.log('valeur input range', inputPrix.value) */
+
+    /* for(let i = 0; i < pieces.length; i++){
+        if(pieces[i].prix <= inputRangePrix){
+            console.log(pieces[i].prix)
+        }
+        else{
+            
+        }
+    } */
+})
+
+/* 
+const noms = pieces.map(piece => piece.nom);
+for(let i = pieces.length -1 ; i >= 0; i--){
+    if(pieces[i].prix > 35){
+        noms.splice(i,1)
+    }
+}
+
+
+for(let i = 0; i < pieces.length; i++){
+    console.log(pieces)
+    if(pieces[i] ){
+
+    }
+} */
+
+
+
+
+//document.querySelector('#prix-max').appendChild('hjb')
